@@ -4,6 +4,8 @@ import org.apache.ibatis.session.SqlSession;
 import org.apache.log4j.Logger;
 import org.mybatis.study.pojo.Role;
 import org.mybatis.study.pojo.RoleMapper;
+import org.mybatis.study.pojo.User;
+import org.mybatis.study.pojo.UserMapper;
 
 public class Chapter3Main {
 
@@ -13,9 +15,12 @@ public class Chapter3Main {
 		
 		try {
 			sqlSession = SqlSessionFactoryUtils.openSqlSession();
-			RoleMapper roleMapper = sqlSession.getMapper(RoleMapper.class);
-			Role role = roleMapper.getRole(1L);
-			log.info(role);
+//			RoleMapper roleMapper = sqlSession.getMapper(RoleMapper.class);
+//			Role role = roleMapper.getRole(1L);
+//			log.info(role);
+			UserMapper userMapper = sqlSession.getMapper(UserMapper.class);
+			User user = userMapper.getUser(1L);
+			System.out.println(user.getSex());
 		} finally {
 			if (sqlSession != null) {
 				sqlSession.close();
