@@ -5,13 +5,13 @@
 
 <mapper namespace="org.mybatis.study.pojo.RoleMapper">
 
-	<select id="selectRole" resultType="org.mybatis.study.pojo.Role">
+	<select id="selectRole" resultType="role">
 		select * from role where id =
 		#{id}
 	</select>
 
 	<insert id="insertRole"
-		parameterType="org.mybatis.study.pojo.Role">
+		parameterType="role">
 		insert into role(role_name, note) values (#{roleName},
 		#{note})
 	</insert>
@@ -22,20 +22,20 @@
 	</delete>
 
 	<update id="updateRole"
-		parameterType="org.mybatis.study.pojo.Role">
+		parameterType="role">
 		update role set role_name
 		= #{roleName}, note = #{note}
 		where id = #{id}
 	</update>
 
 	<select id="getRole" parameterType="long"
-		resultType="org.mybatis.study.pojo.Role">
+		resultType="role">
 		select id, role_name as RoleName, note from role where id =
 		#{id}
 	</select>
 
 	<select id="findRoles" parameterType="String"
-		resultType="org.mybatis.study.pojo.Role">
+		resultType="role">
 
 		select id, role_name as RoleName, note from role where role_name like
 		concat('%',#{roleName},'%')

@@ -26,6 +26,12 @@
 		<setting name="lazyLoadTriggerMethods"
 			value="equals,clone,hashCode,toString" />
 	</settings>
+
+	<typeAliases>
+		<!-- <typeAlias alias="role" type="org.mybatis.study.pojo.Role" /> -->
+		<package name="org.mybatis.study.pojo" />
+	</typeAliases>
+
 	<environments default="development">
 		<environment id="development">
 			<transactionManager type="JDBC" />
