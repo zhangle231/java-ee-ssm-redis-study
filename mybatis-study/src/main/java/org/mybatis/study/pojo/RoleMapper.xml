@@ -10,36 +10,70 @@
 		#{id}
 	</select>
 
-	<insert id="insertRole"
-		parameterType="role">
-		insert into role(role_name, note) values (#{roleName},
+	<!-- 1.标准的插入语句 -->
+	<insert id="insertRole" parameterType="role">
+		insert into
+		role(role_name, note) values (#{roleName},
 		#{note})
 	</insert>
 
+	<!-- 2.插入后返回主键，需要commit后才能获取到值 -->
+	<insert id="insertRole2" parameterType="role"
+		useGeneratedKeys="true" keyProperty="id">
+		insert into
+		role(role_name,note)
+		values(#{roleName},#{note})
+	</insert>
+
+	<!-- 3.自定义主键 -->
+	<insert id="insertRole3" parameterType="role">
+		<selectKey keyProperty="id" resultType="Long" order="BEFORE">
+			select
+			if(max(id) = null, 1, max(id) + 3) from role
+		</selectKey>
+		insert into
+		role(id,role_name,note)
+		values(#{id},#{roleName},#{note})
+	</insert>
+
+	<!-- delete和update的返回值都是影响的记录数 -->
 	<delete id="deleteRole" parameterType="long">
 		delete from role where id
 		= #{id}
 	</delete>
 
-	<update id="updateRole"
-		parameterType="role">
+	<update id="updateRole" parameterType="role">
 		update role set role_name
 		= #{roleName}, note = #{note}
 		where id = #{id}
 	</update>
 
-	<select id="getRole" parameterType="long"
-		resultType="role">
-		select id, role_name as RoleName, note from role where id =
+	<select id="getRole" parameterType="long" resultType="role">
+		select id,
+		role_name as RoleName, note from role where id =
 		#{id}
 	</select>
 
-	<select id="findRoles" parameterType="String"
-		resultType="role">
+	<select id="findRoles" parameterType="String" resultType="role">
 
-		select id, role_name as RoleName, note from role where role_name like
+		select
+		id, role_name as RoleName, note from role where role_name like
 		concat('%',#{roleName},'%')
 
+	</select>
+
+	<!-- sql元素,可以定义一条sql的一部分，方便后面的sql引用 ,支持变量传递 -->
+	<sql id="roleCols">
+		${alias}.id, ${alias}.role_name, ${alias}.note
+	</sql>
+
+	<select id="getRole2" parameterType="long" resultType="role">
+		select
+		<include refid="roleCols" >
+			<property name="alias" value="t"/>
+		</include>
+		from role t
+		where id = #{id}
 	</select>
 
 </mapper>

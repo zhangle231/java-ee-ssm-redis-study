@@ -51,7 +51,7 @@
 	</environments>
 	<mappers>
 		<mapper resource="org/mybatis/study/pojo/RoleMapper.xml" />
-		<mapper resource="org/mybatis/study/pojo/UserMapper.xml" />
+		<!-- <mapper resource="org/mybatis/study/pojo/UserMapper.xml" /> -->
 	</mappers>
 
 </configuration>
