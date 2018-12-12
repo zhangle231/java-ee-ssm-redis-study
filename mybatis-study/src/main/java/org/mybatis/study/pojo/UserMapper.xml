@@ -4,13 +4,13 @@
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <mapper namespace="org.mybatis.study.pojo.UserMapper">
-<!-- typeHandler="org.apache.ibatis.type.EnumOrdinalTypeHandler" 
-                /> -->
+	<!-- typeHandler="org.apache.ibatis.type.EnumOrdinalTypeHandler" /> typeHandler="org.apache.ibatis.type.EnumTypeHandler" 
+		/> -->
 	<resultMap type="user" id="userMapper">
 		<result property="id" column="id" />
 		<result property="userName" column="user_name" />
 		<result property="sex" column="sex"
-			typeHandler="org.apache.ibatis.type.EnumTypeHandler" />
+			typeHandler="org.mybatis.study.SexEnumTypeHandler" />
 	</resultMap>
 
 	<select id="getUser" resultMap="userMapper" parameterType="long">
