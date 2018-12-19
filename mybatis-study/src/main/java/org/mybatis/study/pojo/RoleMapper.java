@@ -2,6 +2,11 @@ package org.mybatis.study.pojo;
 
 import java.util.List;
 
+/**
+ * 
+ * @author ricky
+ *
+ */
 public interface RoleMapper {
 
 	public Role selectRole(Long id);

@@ -1,7 +1,7 @@
 package org.mybatis.study.pojo;
 
 /**
- * @author ricky
+ * @author ricky2
  *
  */
 public class Role {
