@@ -4,17 +4,17 @@ import org.apache.ibatis.session.SqlSession;
 import org.apache.log4j.Logger;
 import org.mybatis.study.pojo.Role;
 import org.mybatis.study.pojo.RoleMapper;
-import org.mybatis.study.pojo.User;
-import org.mybatis.study.pojo.UserMapper;
 
 public class Chapter3Main {
 
     /**
-     * 
+     * 1234
      * @param args
      */
 	public static void main(String[] args) {
-		Logger log = Logger.getLogger(Chapter3Main.class);
+		Logger LOG = Logger.getLogger(Chapter3Main.class);
+		
+		LOG.debug("begin now.");
 		SqlSession sqlSession = null;
 		
 		try {

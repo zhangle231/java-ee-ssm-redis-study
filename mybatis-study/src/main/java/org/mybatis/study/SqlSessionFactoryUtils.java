@@ -10,6 +10,9 @@ import org.apache.ibatis.session.SqlSessionFactoryBuilder;
 
 public class SqlSessionFactoryUtils {
 
+    /**
+     * 测试一下
+     */
 	private final static Class<SqlSessionFactoryUtils> LOCK = SqlSessionFactoryUtils.class;
 
 	private static SqlSessionFactory sqlSessionFactory = null;
