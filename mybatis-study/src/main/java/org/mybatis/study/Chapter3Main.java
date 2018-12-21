@@ -9,6 +9,10 @@ import org.mybatis.study.pojo.UserMapper;
 
 public class Chapter3Main {
 
+    /**
+     * 
+     * @param args
+     */
 	public static void main(String[] args) {
 		Logger log = Logger.getLogger(Chapter3Main.class);
 		SqlSession sqlSession = null;
