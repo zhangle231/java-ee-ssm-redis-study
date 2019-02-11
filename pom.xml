@@ -21,5 +21,6 @@
 		<module>introduce</module>
 		<module>java-design</module>
     <module>mybatis-study</module>
+    <module>avro-test</module>
   </modules>
 </project>
